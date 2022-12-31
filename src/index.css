@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Semibold';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.font-16 {
+  font: normal normal normal 16px/28px Segoe UI;
+  letter-spacing: 0px;
+  color: #2D3748;
+
+}
+
+.font-18 {
+  font: normal normal bold 18px/28px Segoe UI;
+  letter-spacing: 0px;
+  color: #2D3748;
+
+}
+
+.style {
+
+  /* position: relative; */
+  padding-top: 140px;
+  left: 1px;
+  text-align: left;
+}
+
+.style-2 {
+  padding-top: 40px;
+  padding-left: 1x;
+}
