@@ -18,7 +18,11 @@ function AuthPage() {
       "aria-controls": `vertical-tabpanel-${index}`,
     };
   }
-
+  const getData = (val) => {
+    // do not forget to bind getData in constructor
+    console.log(val);
+    setType(val);
+  };
   const handleChange = (event, newValue) => {
     setValue(newValue);
     let val = newValue === 0 ? "signin" : "signup";
@@ -50,7 +54,7 @@ function AuthPage() {
             </Grid>
           ) : type === "signup" ? (
             <Grid item md={6} lg={7} xl={7}>
-              <SignUp></SignUp>
+              <SignUp sendData={getData}></SignUp>
             </Grid>
           ) : null}
         </Grid>

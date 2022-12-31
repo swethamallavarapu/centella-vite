@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
+import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
@@ -9,16 +10,12 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const theme = createTheme();
-export default function SignUp() {
-  const mobileRegExp =
-    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+export default function SignUp(props) {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Fullname is required"),
-    emailId: Yup.string().required("Email Address is required"),
-    mobileNumber: Yup.string().required("Mobile Number is required"),
+    email: Yup.string().required("Email is required").email("Email is invalid"),
   });
 
   const {
@@ -30,7 +27,8 @@ export default function SignUp() {
     resolver: yupResolver(validationSchema),
   });
   const onSubmit = (data) => {
-    console.log(JSON.stringify(data, null, 2));
+    props.sendData("signin");
+    console.log(JSON.stringify(data, null, 2), props);
   };
   return (
     <ThemeProvider theme={theme}>
@@ -53,80 +51,86 @@ export default function SignUp() {
               onSubmit={handleSubmit}
               noValidate
             >
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="Name"
-                label="Name"
-                name="name"
-                autoComplete="name"
-                {...register("name")}
-                error={errors.name ? true : false}
-              />
-              <Typography variant="inherit" color="textSecondary">
-                {errors.name?.message}
-              </Typography>
+              <Grid container>
+                <Grid item xs={12} sm={12}>
+                  <TextField
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="Name"
+                    label="Name"
+                    name="name"
+                    autoComplete="name"
+                    {...register("name")}
+                    error={errors.name ? true : false}
+                  />
+                  <Typography variant="inherit" color="textSecondary">
+                    {errors.name?.message}
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} sm={12}>
+                  <TextField
+                    required
+                    id="email"
+                    name="email"
+                    label="Email"
+                    fullWidth
+                    margin="dense"
+                    {...register("email")}
+                    error={errors.email ? true : false}
+                  />
+                  <Typography variant="inherit" color="textSecondary">
+                    {errors.email?.message}
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} sm={12}>
+                  <TextField
+                    margin="normal"
+                    // required
+                    fullWidth
+                    name="MobileNumber"
+                    label="Mobile Number"
+                    id="mobilenumber"
+                    autoComplete="mobile number"
+                    {...register("mobilenumber")}
+                    // error={errors.mobilenumber ? true : false}
+                  />
+                  {/* <Typography variant="inherit" color="textSecondary">
+                    {errors.mobilenumber?.message}
+                  </Typography> */}
+                </Grid>
+                <Grid item xs={12} sm={12}>
+                  <TextField
+                    margin="normal"
+                    fullWidth
+                    name="Organization name"
+                    label="Organization Name"
+                    id="orgName"
+                    {...register("orgName")}
+                  />
+                </Grid>
 
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email ID"
-                name="email"
-                autoComplete="email"
-                {...register("email")}
-                error={errors.email ? true : false}
-              />
-              <Typography variant="inherit" color="textSecondary">
-                {errors.email?.message}
-              </Typography>
+                <Grid item xs={12} sm={12}>
+                  <TextField
+                    margin="normal"
+                    fullWidth
+                    name="Your role"
+                    label="Your role"
+                    id="role"
+                    {...register("role")}
+                  />
+                </Grid>
 
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="MobileNumber"
-                label="Mobile Number"
-                type="mobile number"
-                id="mobile number"
-                autoComplete="mobile number"
-                {...register("mobile number")}
-                error={errors.mobilenumber ? true : false}
-              />
-              <Typography variant="inherit" color="textSecondary">
-                {errors.mobilenumber?.message}
-              </Typography>
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="Organization name"
-                label="Organization Name"
-                type="name"
-                id="name"
-                autoComplete=" organization name"
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="Your role"
-                label="Your Role"
-                type="role"
-                id="role"
-                autoComplete="role"
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-                onClick={handleSubmit(onSubmit)}
-              >
-                Register
-              </Button>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                  onClick={handleSubmit(onSubmit)}
+                >
+                  Register
+                </Button>
+              </Grid>
             </Box>
           </Box>
         </Container>
