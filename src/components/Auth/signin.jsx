@@ -10,6 +10,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import { Link, Routes, Route, useNavigate } from "react-router-dom";
 
 const theme = createTheme();
 export default function SignIn() {
@@ -30,6 +31,11 @@ export default function SignIn() {
   });
   const onSubmit = (data) => {
     console.log(JSON.stringify(data, null, 2));
+  };
+  const navigate = useNavigate();
+  const onClick = (event) => {
+    // event.preventDefault();
+    navigate("/CentChem");
   };
 
   return (
@@ -94,7 +100,7 @@ export default function SignIn() {
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
-                  onClick={handleSubmit(onSubmit)}
+                  onClick={handleSubmit(onClick(onSubmit))}
                 >
                   Sign In
                 </Button>

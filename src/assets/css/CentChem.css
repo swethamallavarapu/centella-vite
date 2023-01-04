@@ -1,9 +1,15 @@
-.Style {
-    top: 113px;
-    left: 300px;
-    width: 241px;
-    height: 73px;
+.Chem {
+    width: 30%;
+    height: 685px;
+    padding-left: 20%;
+    text-align: right;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
 }
+
+
+.Style {}
 
 .Item {
     top: 128px;
