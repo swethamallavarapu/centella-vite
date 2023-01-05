@@ -3,17 +3,20 @@
     height: 685px;
     padding-left: 20%;
     text-align: right;
-    display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    display: flex;
+    justify-content: space-around;
 }
 
 
-.Style {}
-
-.Item {
-    top: 128px;
-    left: 654px;
-    width: 84px;
-    height: 53px;
+.style {
+    text-align: center;
+    text-align: -webkit-right;
+    position: relative;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    grid-gap: 50px;
 }
