@@ -3,7 +3,7 @@ import "./App.css";
 import AuthPage from "./pages/Authpage";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import CentChem from "./pages/CentChem";
-import List from "./pages/List";
+import Opt from "./pages/Opt";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
           <Routes>
             <Route path="AuthPage" element={<AuthPage />} />
             <Route path="CentChem" element={<CentChem />} />
-            <Route path="List" element={<List />} />
+            <Route path="List" element={<Opt />} />
           </Routes>
         </main>
       </div>
