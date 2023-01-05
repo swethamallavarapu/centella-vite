@@ -3,50 +3,46 @@ import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import Divider from "@mui/material/Divider";
-import InboxIcon from "@mui/icons-material/Inbox";
-import DraftsIcon from "@mui/icons-material/Drafts";
+import Paper from "@mui/material/Paper";
+import { Divider } from "@mui/material";
 
-export default function list() {
+function Opt() {
   return (
-    <Box sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
-      <nav aria-label="main mailbox folders">
+    <Paper variant="contained">
+      <Box
+        sx={{
+          width: 200,
+          height: 180,
+          backgroundColor: "primary.dark",
+          "&:hover": {
+            backgroundColor: "primary.main",
+          },
+        }}
+      >
         <List>
+          <Divider />
           <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <InboxIcon />
-              </ListItemIcon>
-              <ListItemText primary="Inbox" />
+            <ListItemButton variant="contained">
+              <ListItemText>PasteSmile</ListItemText>
             </ListItemButton>
           </ListItem>
+          <Divider />
           <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <DraftsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Drafts" />
+            <ListItemButton variant="contained">
+              <ListItemText>DrawMolecule</ListItemText>
             </ListItemButton>
           </ListItem>
+          <Divider />
+          <ListItem disablePadding>
+            <ListItemButton variant="contained">
+              <ListItemText>UploadFile</ListItemText>
+            </ListItemButton>
+          </ListItem>
+          <Divider />
         </List>
-      </nav>
-      <Divider />
-      <nav aria-label="secondary mailbox folders">
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemText primary="Trash" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
-              <ListItemText primary="Spam" />
-            </ListItemButton>
-          </ListItem>
-        </List>
-      </nav>
-    </Box>
+      </Box>
+    </Paper>
   );
 }
+export default Opt;
