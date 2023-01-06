@@ -9,7 +9,7 @@ import { Divider } from "@mui/material";
 
 function Opt() {
   return (
-    <Paper variant="contained">
+    <Paper variant="contained" style={{ padding: "300px" }}>
       <Box
         sx={{
           width: 200,
