@@ -13,7 +13,7 @@ function App() {
           <Routes>
             <Route path="AuthPage" element={<AuthPage />} />
             <Route path="CentChem" element={<CentChem />} />
-            <Route path="List" element={<Opt />} />
+            <Route path="Opt" element={<Opt />} />
           </Routes>
         </main>
       </div>
