@@ -4,7 +4,8 @@ import AuthPage from "./pages/Authpage";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import CentChem from "./pages/CentChem";
 import Opt from "./pages/Opt";
-import Select from "./pages/Select";
+import Choose from "./pages/Choose";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
             <Route path="AuthPage" element={<AuthPage />} />
             <Route path="CentChem" element={<CentChem />} />
             <Route path="Opt" element={<Opt />} />
-            <Route path="Select" element={<Select />} />
+            <Route path="Choose" element={<Choose />} />
+            <Route path="Dashboard" element={<Dashboard />} />
           </Routes>
         </main>
       </div>

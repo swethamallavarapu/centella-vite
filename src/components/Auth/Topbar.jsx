@@ -13,7 +13,7 @@ const StyledToolbar = styled(Toolbar)({
 });
 
 const Search = styled("div")(({ theme }) => ({
-  // backgroundColor: "white",
+  backgroundColor: "white",
   variant: "filled",
   padding: "0 10px",
   borderRadius: theme.shape.borderRadius,
