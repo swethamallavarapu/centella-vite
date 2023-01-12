@@ -5,6 +5,8 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import CentChem from "./pages/CentChem";
 import Opt from "./pages/Opt";
 import Choose from "./pages/Choose";
+import Retro from "./pages/Retro";
+import Molecule from "./pages/Molecule";
 import Dashboard from "./pages/Dashboard";
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
             <Route path="CentChem" element={<CentChem />} />
             <Route path="Opt" element={<Opt />} />
             <Route path="Choose" element={<Choose />} />
+            <Route path="Retro" element={<Retro />} />
+            <Route path="Molecule" element={<Molecule />} />
             <Route path="Dashboard" element={<Dashboard />} />
           </Routes>
         </main>

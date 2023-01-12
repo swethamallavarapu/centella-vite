@@ -7,14 +7,17 @@ import AddIcon from "@mui/icons-material/Add";
 import { AppBar, Badge, Box, InputBase, styled, Toolbar } from "@mui/material";
 import React, { useState } from "react";
 import Chip from "@mui/material/Chip";
+import SearchIcon from "@mui/icons-material/Search";
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
+  backgroundColor: "white",
 });
 
 const Search = styled("div")(({ theme }) => ({
   backgroundColor: "white",
-  variant: "filled",
+  border: "1 px solid black",
+  variant: "outlined",
   padding: "0 10px",
   borderRadius: theme.shape.borderRadius,
   width: "20%",
@@ -23,7 +26,7 @@ const Search = styled("div")(({ theme }) => ({
 const Icons = styled(Box)(({ theme }) => ({
   display: "none",
   alignItems: "center",
-  gap: "10px",
+  gap: "5px",
   [theme.breakpoints.up("xs")]: {
     display: "flex",
   },
@@ -46,17 +49,17 @@ const Topbar = () => {
     <AppBar position="sticky">
       <StyledToolbar>
         <Toolbar />
-        <Search>
-          <InputBase placeholder="search" />
+        <Search variant="outlined">
+          <InputBase placeholder="search" icon={<SearchIcon />} />
           {/* <Search /> */}
         </Search>
-        <Chip icon={<AddIcon />} label="Add Project" />
-        <Icons>
+        <Chip icon={<AddIcon color="black" />} label="Add Project" />
+        <Icons color="black">
           <Badge color="error" variant="dot">
             <Notifications />
           </Badge>
         </Icons>
-        <Icons>
+        <Icons color="black">
           <AccountCircle /> <span>Syed Riyaz</span> <KeyboardArrowDown />
         </Icons>
       </StyledToolbar>

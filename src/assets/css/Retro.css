@@ -1,0 +1,8 @@
+.Style {
+    width: fit-content;
+    display: flex;
+    flex-direction: row-reverse;
+    /* text-align: -webkit-right; */
+    height: auto;
+    /* padding-top: 30%; */
+}

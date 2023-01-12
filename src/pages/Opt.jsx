@@ -14,10 +14,9 @@ function Opt() {
         sx={{
           width: 200,
           height: 180,
-          backgroundColor: "primary.dark",
-          "&:hover": {
-            backgroundColor: "primary.main",
-          },
+          backgroundColor: "primary.main",
+          border: "solid 10px orange ",
+          borderBlock: "white",
         }}
       >
         <List>

@@ -1,4 +1,4 @@
-import { Paper } from "@mui/material";
+import { Paper, Container, Grid, styled, Stack } from "@mui/material";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -10,21 +10,75 @@ import Typography from "@mui/material/Typography";
 import FileOpenIcon from "@mui/icons-material/FileOpen";
 
 const CentChem = () => {
-  const [open, setOpen] = React.useState(false);
-  const handleClickOpen = () => {
-    setOpen(true);
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+    ...theme.typography.h6,
+    padding: theme.spacing(1),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  }));
+  const boxStyle = { marginLeft: "25%", paddingTop: "10%" };
+  const boxItemStyle = {
+    padding: "15%",
+    background: "#E7EAEE 0% 0% no-repeat padding-box",
+    borderRadius: "10px 0px 0px 10px",
   };
-  const onClick = () => {
-    setOpen(true);
-  };
-  const handleClose = (event, reason) => {
-    if (reason !== "backdropClick") {
-      setOpen(false);
-    }
+  const contentItemStyle = {
+    padding: "5%",
+    background: "#FFFFFF 0% 0% no-repeat padding-box",
+    boxShadow: "5px 6px 6px #00000029",
+    borderRadius: "10px",
   };
   return (
     <div>
-      <div className="Cent">
+      <Container maxWidth="xl" style={{ maxWidth: "100vw", padding: "0" }}>
+        <Grid container>
+          <Grid item md={2} lg={1} xl={1}>
+            <div className="authTab"></div>
+          </Grid>
+          <Grid item md={4} lg={4} xl={4}>
+            <Paper elevation={4} className="banner">
+              <div style={boxStyle}>
+                <Stack spacing={5}>
+                  <Button variant="text">
+                    <Item style={boxItemStyle}>
+                      CentChem
+                      {/* <p>
+                        <h6>
+                          Filler text is text that shares some characteristics
+                          of a real written text, but is random or otherwise
+                          generated. It may be used to display a sample of
+                        </h6>
+                      </p> */}
+                    </Item>
+                  </Button>
+                  <Button>
+                    <Item style={boxItemStyle}>CentRepurpose</Item>
+                  </Button>
+                  <Button>
+                    <Item style={boxItemStyle}>CentOmics</Item>
+                  </Button>
+                  <Button>
+                    <Item style={boxItemStyle}>CentCombi</Item>
+                  </Button>
+                </Stack>
+              </div>
+            </Paper>
+          </Grid>
+          <Grid item md={6} lg={6} xl={6}></Grid>
+          <div>
+            <Stack direction="row" spacing={5} paddingLeft="800px">
+              <Button>
+                <Item style={contentItemStyle}>ADMET Prediction</Item>
+              </Button>
+              <Item style={contentItemStyle}>Retro Synthesis</Item>
+              <Item style={contentItemStyle}>Virtual Screen</Item>
+            </Stack>
+          </div>
+        </Grid>
+      </Container>
+
+      {/* <div className="Cent">
         <Paper
           elevation={4}
           style={{
@@ -34,6 +88,11 @@ const CentChem = () => {
             left: "10%",
           }}
         >
+
+
+
+
+
           <Button onClick={onClick}>
             <h2>CentChem</h2>
             <br />
@@ -98,7 +157,7 @@ const CentChem = () => {
             </Typography>
           </CardContent>
         </Card>
-      </div>
+      </div> */}
     </div>
   );
 };
