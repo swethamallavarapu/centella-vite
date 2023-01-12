@@ -15,8 +15,8 @@ function Opt() {
           width: 200,
           height: 180,
           backgroundColor: "primary.main",
-          border: "solid 10px orange ",
-          borderBlock: "white",
+          border: "10px solid Whitesmoke ",
+          // borderBlock: "white",
         }}
       >
         <List>

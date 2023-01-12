@@ -1,13 +1,10 @@
 import { Paper, Container, Grid, styled, Stack } from "@mui/material";
 import * as React from "react";
-import Box from "@mui/material/Box";
+import { useState } from "react";
 import Button from "@mui/material/Button";
-import Card from "@mui/material/Card";
 import "../assets/css/CentChem.css";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
 import FileOpenIcon from "@mui/icons-material/FileOpen";
+import { render } from "react-dom";
 
 const CentChem = () => {
   const Item = styled(Paper)(({ theme }) => ({
@@ -29,6 +26,12 @@ const CentChem = () => {
     boxShadow: "5px 6px 6px #00000029",
     borderRadius: "10px",
   };
+  const state = {
+    showMessage: "false",
+  };
+  const onButtonClickHandler = () => {
+    this.setState({ showMessage: !this.state.showMessage });
+  };
   return (
     <div>
       <Container maxWidth="xl" style={{ maxWidth: "100vw", padding: "0" }}>
@@ -40,27 +43,36 @@ const CentChem = () => {
             <Paper elevation={4} className="banner">
               <div style={boxStyle}>
                 <Stack spacing={5}>
-                  <Button variant="text">
-                    <Item style={boxItemStyle}>
-                      CentChem
-                      {/* <p>
+                  <Item style={boxItemStyle}>
+                    CentChem
+                    {/* <p>
                         <h6>
                           Filler text is text that shares some characteristics
                           of a real written text, but is random or otherwise
                           generated. It may be used to display a sample of
                         </h6>
                       </p> */}
-                    </Item>
-                  </Button>
-                  <Button>
-                    <Item style={boxItemStyle}>CentRepurpose</Item>
-                  </Button>
-                  <Button>
-                    <Item style={boxItemStyle}>CentOmics</Item>
-                  </Button>
-                  <Button>
-                    <Item style={boxItemStyle}>CentCombi</Item>
-                  </Button>
+                  </Item>
+
+                  <Item style={boxItemStyle}>
+                    {/* CentRepurpose */}
+                    {this.state.showMessage && (
+                      <p>
+                        <h6>
+                          Filler text is text that shares some characteristics
+                          of a real written text, but is random or otherwise
+                          generated. It may be used to display a sample of
+                        </h6>
+                      </p>
+                    )}
+                    <button onClick={this.onButtonClickHandler}>
+                      CentRepurpose
+                    </button>
+                  </Item>
+
+                  <Item style={boxItemStyle}>CentOmics</Item>
+
+                  <Item style={boxItemStyle}>CentCombi</Item>
                 </Stack>
               </div>
             </Paper>
@@ -69,10 +81,19 @@ const CentChem = () => {
           <div>
             <Stack direction="row" spacing={5} paddingLeft="800px">
               <Button>
-                <Item style={contentItemStyle}>ADMET Prediction</Item>
+                <Item style={contentItemStyle}>
+                  <FileOpenIcon />
+                  ADMET Prediction
+                </Item>
               </Button>
-              <Item style={contentItemStyle}>Retro Synthesis</Item>
-              <Item style={contentItemStyle}>Virtual Screen</Item>
+              <Item style={contentItemStyle}>
+                <FileOpenIcon />
+                Retro Synthesis
+              </Item>
+              <Item style={contentItemStyle}>
+                <FileOpenIcon />
+                Virtual Screen
+              </Item>
             </Stack>
           </div>
         </Grid>
@@ -87,13 +108,7 @@ const CentChem = () => {
             textAlign: "right",
             left: "10%",
           }}
-        >
-
-
-
-
-
-          <Button onClick={onClick}>
+        > <Button onClick={onClick}>
             <h2>CentChem</h2>
             <br />
             <p>
