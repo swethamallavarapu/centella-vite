@@ -1,19 +1,20 @@
 import * as React from "react";
+import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import "../assets/css/Retro.css";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
+import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import TextField from "@mui/material/TextField";
-import { ButtonGroup } from "@mui/material";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Radio from "@mui/material/Radio";
+import { CardHeader, Divider } from "@mui/material";
 
-const Retro = () => {
+export default function Retro() {
   const [value, setValue] = React.useState("Targetmolecule");
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -25,38 +26,37 @@ const Retro = () => {
   };
   return (
     <div className="Style">
-      <Card className="card" sx={{ Width: 200 }}>
+      <Card sx={{ minWidth: 275 }}>
         <CardContent>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary">
-            RETROSYNTASIS PREDICTION
+          <Typography variant="h5" color="text.secondary" gutterBottom>
+            Retro Synthesis
           </Typography>
-        </CardContent>
-        <FormControl>
-          <RadioGroup
-            aria-labelledby="demo-controlled-radio-buttons-group"
-            name="controlled-radio-buttons-group"
-            value={value}
-            onChange={OnChange}
-          >
-            <FormControlLabel
-              value="Addtopreexistingproject "
-              control={<Radio />}
-              label="Add to pre-existing project"
-            />
-            <FormControlLabel
-              value="Addtoabrandnewproject"
-              control={<Radio />}
-              label="Add to a brand new project"
+          <FormControl>
+            <RadioGroup
+              aria-labelledby="demo-controlled-radio-buttons-group"
+              name="controlled-radio-buttons-group"
+              value={value}
+              onChange={handleChange}
             >
-              <TextField
-                id="standard-basic"
-                variant="standard"
-                label="Add Project Name"
+              <FormControlLabel
+                value="Addtopreexistingproject "
+                control={<Radio />}
+                label="Add to pre-existing project"
               />
-            </FormControlLabel>
-          </RadioGroup>
-        </FormControl>
-        <div className="">
+              <FormControlLabel
+                value="Addtoabrandnewproject"
+                control={<Radio />}
+                label="Add to a brand new project"
+              >
+                {/* <TextField
+                  id="standard-basic"
+                  variant="standard"
+                  label="Add Project Name"
+                /> */}
+              </FormControlLabel>
+            </RadioGroup>
+          </FormControl>
+          <Divider />
           <FormControl>
             <FormLabel id="demo-controlled-radio-buttons-group">
               <u>Start From</u>
@@ -79,18 +79,16 @@ const Retro = () => {
               />
             </RadioGroup>
           </FormControl>
-        </div>
+        </CardContent>
         <CardActions>
-          <ButtonGroup
-            variant="contained"
-            aria-label="outlined grey button group"
-          >
-            <Button Width="large">CANCEL</Button>
-            <Button size="small">PREDICT RETROSYNTASIS</Button>
-          </ButtonGroup>
+          <Button variant="outlined" sx={{ width: 250, padding: 1, margin: 2 }}>
+            CANCEL
+          </Button>
+          <Button variant="outlined" sx={{ width: 250, padding: 1, margin: 2 }}>
+            PREDICT RETROSYNTHESIS
+          </Button>
         </CardActions>
       </Card>
     </div>
   );
-};
-export default Retro;
+}

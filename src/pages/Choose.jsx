@@ -73,6 +73,7 @@ const Choose = () => {
           sx={{ m: 3, minWidth: 150 }}
           size="small"
           border-radius="25px"
+          color="grey"
         >
           <InputLabel htmlFor="demo-customized-select-native"></InputLabel>
 
