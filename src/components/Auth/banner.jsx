@@ -1,7 +1,7 @@
 import { Paper } from "@mui/material";
 import * as React from "react";
-import "../../Assets/css/banner.css";
-import bgimg from "../../Assets/images/centella.png";
+import "../../assets/css/banner.css";
+import bgimg from "../../assets/images/centella.png";
 function Banner() {
   return (
     <Paper elevation={4} className="banner">

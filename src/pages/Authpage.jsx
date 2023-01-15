@@ -1,16 +1,16 @@
 import { Container, Grid } from "@mui/material";
 import React, { useState } from "react";
-import Banner from "../components/Auth/banner";
-import SignIn from "../components/Auth/signin";
-import SignUp from "../components/Auth/signup";
-import "../Assets/css/utilis.css";
+import Banner from "../components/auth/banner";
+import SignIn from "../components/auth/signin";
+import SignUp from "../components/auth/signup";
+import "../assets/css/utilis.css";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 // import Sidebar from "../pages/Sidebar";
 
 function AuthPage() {
-  const [type, setType] = useState("");
-  const [value, setValue] = React.useState();
+  const [type, setType] = useState("signin");
+  const [value, setValue] = React.useState(0);
 
   function a11yProps(index) {
     return {
@@ -18,21 +18,17 @@ function AuthPage() {
       "aria-controls": `vertical-tabpanel-${index}`,
     };
   }
-  const getData = (val) => {
-    // do not forget to bind getData in constructor
-    console.log(val);
-    setType(val);
-  };
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
     let val = newValue === 0 ? "signin" : "signup";
     setType(val);
-    console.log(event, newValue);
+    // console.log(event, newValue);
   };
   return (
     <>
       <Container maxWidth="xl" style={{ maxWidth: "100vw", padding: "0" }}>
-        <Grid container md={12} lg={12} xl={12}>
+        <Grid container>
           <Grid item md={2} lg={1} xl={1}>
             <div className="authTab">
               <Tabs
@@ -48,15 +44,9 @@ function AuthPage() {
           <Grid item md={4} lg={4} xl={4}>
             <Banner></Banner>
           </Grid>
-          {type === "signin" ? (
-            <Grid item md={6} lg={7} xl={7}>
-              <SignIn></SignIn>
-            </Grid>
-          ) : type === "signup" ? (
-            <Grid item md={6} lg={7} xl={7}>
-              <SignUp sendData={getData}></SignUp>
-            </Grid>
-          ) : null}
+          <Grid item md={6} lg={7} xl={7}>
+          {type === "signin" ? <SignIn /> : type === "signup" ?  <SignUp /> : null}
+          </Grid>
         </Grid>
       </Container>
     </>

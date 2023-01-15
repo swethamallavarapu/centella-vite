@@ -1,18 +1,15 @@
 .banner {
     position: relative;
     top: 0px;
-    left: 10%;
-    width: 440px;
-    height: 768px;
+    width: 450px;
+    height: 100vh;
 }
 
 .banner-text {
     position: relative;
     top: 50%;
-    /* left: 5%; */
     width: 380px;
     height: 215px;
-    /* UI Properties */
     text-align: left;
     font: normal normal 600 14px/28px Segoe UI;
     letter-spacing: 0px;

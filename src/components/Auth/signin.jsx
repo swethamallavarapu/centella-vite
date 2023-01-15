@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -6,14 +6,13 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
-import { Link, Routes, Route, useNavigate } from "react-router-dom";
 
-const theme = createTheme();
 export default function SignIn() {
+  let navigate = useNavigate(); 
   const validationSchema = Yup.object().shape({
     email: Yup.string().required("Email is required").email("Email is invalid"),
     password: Yup.string()
@@ -23,7 +22,6 @@ export default function SignIn() {
   });
   const {
     register,
-    control,
     handleSubmit,
     formState: { errors },
   } = useForm({
@@ -31,16 +29,14 @@ export default function SignIn() {
   });
   const onSubmit = (data) => {
     console.log(JSON.stringify(data, null, 2));
+    let path = `Landing`; 
+    navigate(path);
   };
-  const navigate = useNavigate();
-  const onClick = (event) => {
-    // event.preventDefault();
-    navigate("/CentChem");
-  };
+  const bodyStyle={    paddingTop : '20vh'}
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className="style">
+    <>
+      <div style={bodyStyle}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
 
@@ -100,7 +96,7 @@ export default function SignIn() {
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
-                  onClick={handleSubmit(onClick(onSubmit))}
+                  onClick={handleSubmit(onSubmit)}
                 >
                   Sign In
                 </Button>
@@ -109,6 +105,6 @@ export default function SignIn() {
           </Box>
         </Container>
       </div>
-    </ThemeProvider>
+    </>
   );
 }
