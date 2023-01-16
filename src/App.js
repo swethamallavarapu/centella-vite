@@ -9,7 +9,7 @@ import CentChemPage from "./pages/CentChemPage";
 import CentRepurposePage from "./pages/CentRepurposePage";
 import DashboardPage from "./pages/DasboardPage";
 import LandingPage from "./pages/LandingPage";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 const theme = createTheme();
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
           <Route path="/Landing" element={<LandingPage />} />
           <Route element={<NavLayout />}>
             <Route path="/Dashboard" element={<DashboardPage />} />
-            <Route path="/Centchem" element={<CentChemPage />} />
+            <Route path="/Centchem/?" element={<CentChemPage />} />
             <Route path="/CentRepurpose" element={<CentRepurposePage />} />
           </Route>
         </Routes>

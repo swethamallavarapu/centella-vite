@@ -39,7 +39,7 @@ const cardContent = {
   font: "normal normal normal 14px/18px Segoe UI",
   letterSpacing: "0px",
   color: "#E7EAEE",
-  padding: "0px 1px 6px 10px",
+  padding: "0px 1px 20px 10px",
 };
 class SideBox extends React.Component {
   constructor() {

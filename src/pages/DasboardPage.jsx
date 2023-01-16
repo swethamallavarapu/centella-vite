@@ -22,7 +22,7 @@ function DashboardPage() {
     <>
       <Container>
         <Row>
-        <Stack className="p-5" direction="row" spacing={4}>
+        <Stack className="p-4" direction="row" spacing={4}>
           <Item style={itemStyle}>
             <span>Total Predictions</span>
           </Item>

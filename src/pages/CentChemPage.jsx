@@ -1,41 +1,43 @@
 import React from "react";
-import { Container, Grid, Stack, styled, Paper } from "@mui/material";
-import PhotoOutlinedIcon from '@mui/icons-material/PhotoOutlined';
-
-import "../assets/css/utilis.css";
-import SideBox from "../components/landing/sideBox";
+import { Container, Row, Col,Nav,NavDropdown } from "react-bootstrap";
 
 function CentChemPage() {
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-    ...theme.typography.body1,
-    padding: theme.spacing(1),
-    textAlign: "center",
-    color: '#2D3748',
-  }));
-  const itemStyle = {
-    padding: "5%",
-    background: "#FFFFFF 0% 0% no-repeat padding-box",
-    borderRadius: "10px",
-    boxShadow: "5px 6px 6px #00000029",
-  };
-
+  const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
   return (
     <>
-      <Container maxWidth="xl" style={{ maxWidth: "100vw", padding: "0" }}>
-        <Grid container>
-          <Grid item md={2} lg={1} xl={1}></Grid>
-          <Grid item md={4} lg={4} xl={4}>
-            <SideBox />
-          </Grid>
-          <Grid item md={6} lg={7} xl={7}>
-            <Stack className="p-5" direction="row" spacing={4}>
-              <Item style={itemStyle}><PhotoOutlinedIcon /><br />ADMET Prediction</Item>
-              <Item style={itemStyle}><PhotoOutlinedIcon /><br />Retro Synthesis</Item>
-              <Item style={itemStyle}><PhotoOutlinedIcon /><br />Virtual Screen</Item>
-            </Stack>
-          </Grid>
-        </Grid>
+    <Container fluid>
+      <Row>
+      <Nav variant="pills" activeKey="1" onSelect={handleSelect}>
+      <NavDropdown title="ADMET Prediction" eventKey="1" id="nav-dropdown">
+        <NavDropdown.Item eventKey="4.1">Paste Smile</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item eventKey="4.2">Draw Molicuel</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item eventKey="4.3">Upload File</NavDropdown.Item>
+        
+      </NavDropdown>
+      <Nav.Item>
+        <Nav.Link eventKey="2" href="#/home">
+        Retro Synthesis
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="3" href="#/home">
+        DeNovo Design
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="4" href="#/home">
+        Virtual Screening
+        </Nav.Link>
+      </Nav.Item>
+    </Nav>
+      </Row>
+        <Row>
+          <Col lg={2} md={3} style={{padding:'0'}}>
+            
+      </Col>
+        </Row>
       </Container>
     </>
   );

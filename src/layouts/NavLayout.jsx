@@ -170,7 +170,7 @@ export default function NavLayout() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color="inherit">
+      <AppBar position="fixed" color="inherit">
         <Toolbar>
           <IconButton
             size="large"

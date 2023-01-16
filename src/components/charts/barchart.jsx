@@ -91,7 +91,7 @@ export default class SampleBarChart extends PureComponent {
 
   render() {
     return (
-      <ResponsiveContainer width="90%" height="50%">
+      <ResponsiveContainer width="90%" height="60%">
         <BarChart
           width={500}
           height={300}
