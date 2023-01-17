@@ -23,7 +23,7 @@ function LandingPage() {
   const handleClick = (rid, cid) => {
     console.log(rid);
     let path = rid === 0 ? `/Centchem` : `CentRepurpose`;
-    navigate(path + cid);
+    navigate(path);
   };
   // const clickFun=(id)=>{
   //   console.log('function clicked'+id)
