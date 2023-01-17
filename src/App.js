@@ -10,6 +10,8 @@ import CentRepurposePage from "./pages/CentRepurposePage";
 import DashboardPage from "./pages/DasboardPage";
 import LandingPage from "./pages/LandingPage";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import DrawMolecule from "./pages/DrawMolecule";
+import PasteSmile from "./pages/PasteSmile";
 const theme = createTheme();
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
             <Route path="/Dashboard" element={<DashboardPage />} />
             <Route path="/Centchem/?" element={<CentChemPage />} />
             <Route path="/CentRepurpose" element={<CentRepurposePage />} />
+            <Route path="/Centchem/?/DrawMolecule" element = {<DrawMolecule />} />
+            <Route path="/Centchem/?/PasteSmile" element = {<PasteSmile />} />
           </Route>
         </Routes>
       </ProSidebarProvider>
