@@ -3,7 +3,6 @@ import "../assets/css/utilis.css";
 import CentChemPage from "./CentChemPage";
 import { Paper } from "@mui/material";
 // import Side from "../components/DrawMolecule/Side";
-import Nav from "../components/DrawMolecule/Nav";
 
 function DrawMolecule() {
   // function handleSubmit(e) {
@@ -22,9 +21,7 @@ function DrawMolecule() {
           <button class="btn btn-primary">Submit</button>
         </div>
       </div>
-      <Paper>
-        <Nav />
-      </Paper>
+      <Paper></Paper>
     </div>
   );
 }

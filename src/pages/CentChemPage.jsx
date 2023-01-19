@@ -8,7 +8,7 @@ function CentChemPage() {
   let navigate = useNavigate();
   const handleClick = (rid, cid) => {
     console.log(rid);
-    let path = rid === 0 ? `/Centchem` : `CentRepurpose`;
+    let path = rid === 0 ? `/Centchem` : `RetroSynthesis`;
     navigate(path + cid);
   };
 
@@ -44,10 +44,11 @@ function CentChemPage() {
                 Upload File
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Item>
-              <Nav.Link eventKey="2" href="#/home">
-                Retro Synthesis
-              </Nav.Link>
+            <Nav.Item
+              onClick={() => handleClick(0, "/RetroSynthesis")}
+              eventKey="1"
+            >
+              <Nav.Link eventKey="2">Retro Synthesis</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="3" href="#/home">

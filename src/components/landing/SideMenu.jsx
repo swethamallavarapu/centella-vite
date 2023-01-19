@@ -66,7 +66,14 @@ function SideMenu() {
             </Sidebar>
           </Col>
           <Col>
-            <div style={{ display: "flex", height: "100%",paddingTop:'10px' }}>
+            <div
+              style={{
+                display: "flex",
+                height: "100%",
+                paddingTop: "10px",
+                paddingLeft: "10px",
+              }}
+            >
               <Outlet />
             </div>
           </Col>
