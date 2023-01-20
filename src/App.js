@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DrawMolecule from "./pages/DrawMolecule";
 import PasteSmile from "./pages/PasteSmile";
 import RetroSynthesis from "./pages/RetroSynthesis";
+import Upload from "./pages/Upload";
 const theme = createTheme();
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/Centchem/?/DrawMolecule" element = {<DrawMolecule />} />
             <Route path="/Centchem/?/PasteSmile" element = {<PasteSmile />} />
             <Route path="Centchem/RetroSynthesis" element = {<RetroSynthesis />} />
+            <Route path="Centchem/Upload" element={<Upload />} />
           </Route>
         </Routes>
       </ProSidebarProvider>

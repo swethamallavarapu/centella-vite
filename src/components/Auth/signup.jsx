@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -9,10 +9,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 
-
 export default function SignUp() {
-  const mobileRegExp =
-    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Fullname is required"),
     emailId: Yup.string().required("Email Address is required"),
@@ -21,7 +18,6 @@ export default function SignUp() {
 
   const {
     register,
-    control,
     handleSubmit,
     formState: { errors },
   } = useForm({

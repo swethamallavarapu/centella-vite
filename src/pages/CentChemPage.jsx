@@ -38,16 +38,13 @@ function CentChemPage() {
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item
-                onClick={() => handleClick(0, 1)}
+                onClick={() => handleClick(0, "/Upload")}
                 eventKey="4.3"
               >
                 Upload File
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Item
-              onClick={() => handleClick(0, "/RetroSynthesis")}
-              eventKey="1"
-            >
+            <Nav.Item onClick={() => handleClick(0, 1)} eventKey="1">
               <Nav.Link eventKey="2">Retro Synthesis</Nav.Link>
             </Nav.Item>
             <Nav.Item>

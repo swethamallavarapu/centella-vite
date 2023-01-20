@@ -1,0 +1,6 @@
+.text {
+    display: flex;
+    height: 100%;
+    padding-top: 150px;
+    padding-left: 100px;
+}
