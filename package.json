@@ -18,6 +18,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.3",
     "bootstrap": "^5.2.3",
+    "d3-molecule": "^1.2.0",
     "formik": "^2.2.9",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",

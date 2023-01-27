@@ -4,6 +4,9 @@ import Box from "@mui/material/Box";
 import "../assets/css/Upload.css";
 
 function Upload() {
+  const mystyle = {
+    padding: "100px",
+  };
   const [file, setFile] = useState(null);
 
   const UPLOAD_ENDPOINT =
@@ -32,18 +35,19 @@ function Upload() {
   };
 
   return (
-    <Box
-      className="text"
-      component="span"
-      sx={{ p: 12, border: "1px dashed grey" }}
-    >
-      <form onSubmit={handleSubmit}>
-        {/* <h1>React File Upload</h1> */}
-        <input type="file" onChange={handleOnChange} />
+    <div style={mystyle}>
+      <Box
+        className="text"
+        component="span"
+        sx={{ p: 12, border: "1px dashed grey" }}
+      >
+        <form onSubmit={handleSubmit}>
+          <input type="file" onChange={handleOnChange} />
 
-        <button type="submit">Upload File</button>
-      </form>
-    </Box>
+          <button type="submit">Upload File</button>
+        </form>
+      </Box>
+    </div>
   );
 }
 

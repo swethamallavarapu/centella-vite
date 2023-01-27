@@ -18,6 +18,9 @@ import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import SideMenu from "../components/landing/SideMenu";
 import logo from "../assets/images/logo.PNG";
+// import { Link } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -137,7 +140,11 @@ export default function NavLayout() {
             <MailIcon />
           </Badge>
         </IconButton>
-        <Button variant="outlined" startIcon={<AddIcon />}>
+        <Button
+          variant="outlined"
+          startIcon={<AddIcon />}
+          // routerLink={<Link to="/Dashboard" />}
+        >
           Add Project
         </Button>
       </MenuItem>
@@ -167,6 +174,12 @@ export default function NavLayout() {
       </MenuItem>
     </Menu>
   );
+  let navigate = useNavigate();
+  const handleClick = (rid) => {
+    console.log(rid);
+    let path = `/NewProject`;
+    navigate(path);
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -202,7 +215,15 @@ export default function NavLayout() {
 
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Button variant="outlined" size="medium" startIcon={<AddIcon />}>
+            <Button
+              variant="outlined"
+              size="medium"
+              startIcon={<AddIcon />}
+              // routerLink={<Link to="NewProject" />}
+
+              onClick={() => handleClick(0, "/NewProject")}
+              eventKey="1"
+            >
               Add Project
             </Button>
             <IconButton

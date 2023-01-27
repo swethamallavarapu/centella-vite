@@ -1,3 +1,4 @@
+import React from "react";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -8,9 +9,13 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { Divider } from "@mui/material";
 import "../assets/css/RetroSynthesis.css";
-import React, { useState } from "react";
+import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import TextField from "@mui/material/TextField";
+import Row from "react-bootstrap/Row";
+
+// import React, { useState } from "react";
+// import Form from "react-bootstrap/Form";
+// import TextField from "@mui/material/TextField";
 
 function RetroSynthesis() {
   const [value, setValue] = React.useState("addtoapreexistingproject");
@@ -19,7 +24,7 @@ function RetroSynthesis() {
     setValue(event.target.value);
   };
 
-  const [visible, setVisible] = useState(false);
+  // const [visible, setVisible] = useState(false);
 
   return (
     <div>
@@ -29,7 +34,7 @@ function RetroSynthesis() {
             <h5>RetroSynthesis Prediction</h5>
           </Card.Header>
           <Card.Body>
-            <div className="form-group row">
+            {/* <div className="form-group row">
               <label>
                 <h6>Add to pre-existing Group</h6>
               </label>
@@ -105,13 +110,43 @@ function RetroSynthesis() {
                 </label>
                 <div className="col-sm-6">
                   <TextField
-                    id="standard-basic"
+                    //
+                    height="20px"
+                    id="floatingInputGrid"
                     label="Add project Name"
-                    variant="standard"
+                    variant="outlined"
                   />
                 </div>
-              </div>
-            )}
+              </div> 
+            )} */}
+
+            <fieldset>
+              <Form.Group as={Row} className="mb-3">
+                {/* <Form.Label as="legend" column sm={2}>
+                  Radios
+                </Form.Label> */}
+                <Col sm={10}>
+                  <Form.Check
+                    type="radio"
+                    label="first radio"
+                    name="formHorizontalRadios"
+                    id="formHorizontalRadios1"
+                  />
+                  <Form.Check
+                    type="radio"
+                    label="second radio"
+                    name="formHorizontalRadios"
+                    id="formHorizontalRadios2"
+                  />
+                  {/* <Form.Check
+                    type="radio"
+                    label="third radio"
+                    name="formHorizontalRadios"
+                    id="formHorizontalRadios3"
+                  /> */}
+                </Col>
+              </Form.Group>
+            </fieldset>
             <Divider />
             <div>
               <FormControl>

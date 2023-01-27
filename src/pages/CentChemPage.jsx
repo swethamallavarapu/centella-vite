@@ -1,10 +1,12 @@
 import React from "react";
 import { Container, Row, Col, Nav, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function CentChemPage() {
-  // const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
+  const mystyle = {
+    padding: "40px",
+  };
   let navigate = useNavigate();
   const handleClick = (rid, cid) => {
     console.log(rid);
@@ -13,7 +15,7 @@ function CentChemPage() {
   };
 
   return (
-    <>
+    <div style={mystyle}>
       <Container fluid>
         <Row>
           <Nav variant="pills" activeKey="1">
@@ -25,7 +27,7 @@ function CentChemPage() {
               <NavDropdown.Item
                 onClick={() => handleClick(0, "/PasteSmile")}
                 eventKey="4.1"
-                routerLink={<Link to="/DrawMolecule" />}
+                // routerlink={<Link to="/DrawMolecule" />}
               >
                 Paste Smile
               </NavDropdown.Item>
@@ -34,7 +36,7 @@ function CentChemPage() {
                 onClick={() => handleClick(0, "/DrawMolecule")}
                 eventKey="4.2"
               >
-                Draw Molicuel
+                Draw Molecule
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item
@@ -44,7 +46,10 @@ function CentChemPage() {
                 Upload File
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Item onClick={() => handleClick(0, 1)} eventKey="1">
+            <Nav.Item
+              onClick={() => handleClick(0, "/RetroSynthesis")}
+              eventKey="1"
+            >
               <Nav.Link eventKey="2">Retro Synthesis</Nav.Link>
             </Nav.Item>
             <Nav.Item>
@@ -63,7 +68,7 @@ function CentChemPage() {
           <Col lg={2} md={3} style={{ padding: "0" }}></Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 }
 
