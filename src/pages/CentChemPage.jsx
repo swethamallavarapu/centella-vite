@@ -1,11 +1,21 @@
-import React from "react";
+import Upload from "./Upload";
+import React, { useState } from "react";
 import { Container, Row, Col, Nav, NavDropdown } from "react-bootstrap";
 // import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+//import Button from "@mui/material/Button";
+
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import "../assets/css/Upload.css";
 
 function CentChemPage() {
   const mystyle = {
-    padding: "40px",
+    padding: "200px",
+    left: "150px",
+  };
+  const style = {
+    padding: "20px",
   };
   let navigate = useNavigate();
   const handleClick = (rid, cid) => {
@@ -13,9 +23,21 @@ function CentChemPage() {
     let path = rid === 0 ? `/Centchem` : `RetroSynthesis`;
     navigate(path + cid);
   };
+  const values = [true];
+  const [fullscreen, setFullscreen] = useState(true);
+  const [show, setShow] = useState(false);
+
+  function handleShow(breakpoint) {
+    setFullscreen(breakpoint);
+    setShow(true);
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log("You clicked submit.");
+  }
 
   return (
-    <div style={mystyle}>
+    <div style={style}>
       <Container fluid>
         <Row>
           <Nav variant="pills" activeKey="1">
@@ -39,12 +61,37 @@ function CentChemPage() {
                 Draw Molecule
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item
-                onClick={() => handleClick(0, "/Upload")}
-                eventKey="4.3"
+              {values.map((v, idx) => (
+                <NavDropdown.Item
+                  // onClick={() => handleClick(0, "/Upload")}
+                  // eventKey="4.3"
+                  key={idx}
+                  className="me-2 mb-2"
+                  onClick={() => handleShow(v)}
+                >
+                  Upload File{" "}
+                  {typeof v === "string" && `below ${v.split("-")[0]}`}
+                </NavDropdown.Item>
+              ))}
+
+              <Modal
+                show={show}
+                fullscreen={fullscreen}
+                onHide={() => setShow(false)}
               >
-                Upload File
-              </NavDropdown.Item>
+                <Modal.Header closeButton>
+                  <Modal.Title>Modal</Modal.Title>
+                </Modal.Header>
+                <Modal.Body style={mystyle}>
+                  <Upload />
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary">Close</Button>
+                  <Button variant="primary" onSubmit={handleSubmit}>
+                    Submit
+                  </Button>
+                </Modal.Footer>
+              </Modal>
             </NavDropdown>
             <Nav.Item
               onClick={() => handleClick(0, "/RetroSynthesis")}

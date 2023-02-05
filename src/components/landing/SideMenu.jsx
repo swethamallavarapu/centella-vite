@@ -56,7 +56,12 @@ function SideMenu() {
                   <MenuItem> Line charts</MenuItem>
                   <MenuItem> Bar charts</MenuItem>
                 </SubMenu>
-                <MenuItem icon={<PhotoOutlinedIcon />}> My Projects</MenuItem>
+                <MenuItem
+                  icon={<PhotoOutlinedIcon />}
+                  routerLink={<Link to="/MyProject" />}
+                >
+                  My Projects
+                </MenuItem>
                 <MenuItem icon={<PhotoOutlinedIcon />}> Menu Item-1</MenuItem>
                 <MenuItem icon={<PhotoOutlinedIcon />}> Menu Item-2</MenuItem>
                 <MenuItem icon={<PhotoOutlinedIcon />}> My Projects</MenuItem>

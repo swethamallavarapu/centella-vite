@@ -1,28 +1,38 @@
-import React from "react";
-import "../assets/css/utilis.css";
-import CentChemPage from "./CentChemPage";
-import { Paper } from "@mui/material";
-// import Side from "../components/DrawMolecule/Side";
+import { Jsme } from "jsme-react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import "../assets/css/DrawMolecule.css";
+import CentchemPage from "./CentChemPage";
 
-function DrawMolecule() {
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   console.log("You clicked submit.");
-  // }
+export default function App() {
+  const [solutestate, setSoluteState] = useState("");
+
+  const { handleSubmit } = useForm({
+    defaultValues: {
+      solute: "",
+      solvent: "",
+    },
+  });
+
   return (
     <div>
+      <CentchemPage />
+      {/* <h1>Draw Molecule</h1> */}
       <div>
-        <CentChemPage />
-      </div>
-      <div class="container">
-        <h5> Draw Molecule</h5>
-        <div class="d-flex">
-          <input class="form-control mr-1" />
-          <button class="btn btn-primary">Submit</button>
+        <div className="style ">
+          <Jsme
+            height="400px"
+            width="700px"
+            options="oldlook,star"
+            onChange={setSoluteState}
+          />
+        </div>
+        <div className="form">
+          <h1>{solutestate}</h1>
+
+          <button onSubmit={handleSubmit}>Submit</button>
         </div>
       </div>
-      <Paper></Paper>
     </div>
   );
 }
-export default DrawMolecule;

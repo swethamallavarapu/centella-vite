@@ -1,54 +1,67 @@
-import React, { useState } from "react";
-import axios from "axios";
-import Box from "@mui/material/Box";
+import React from "react";
+import { useDropzone } from "react-dropzone";
+// import Box from "@mui/material/Box";
+import Card from "react-bootstrap/Card";
+// import Button from "react-bootstrap/Button";
 import "../assets/css/Upload.css";
 
 function Upload() {
-  const mystyle = {
-    padding: "100px",
-  };
-  const [file, setFile] = useState(null);
-
-  const UPLOAD_ENDPOINT =
-    "http://localhost/react-php-file-upload/backend/upload.php";
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    let res = await uploadFile(file);
-    console.log(res.data);
-  };
-
-  const uploadFile = async (file) => {
-    const formData = new FormData();
-    formData.append("avatar", file);
-
-    return await axios.post(UPLOAD_ENDPOINT, formData, {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
+  const { acceptedFiles, fileRejections, getRootProps, getInputProps } =
+    useDropzone({
+      maxFiles: 2,
     });
-  };
 
-  const handleOnChange = (e) => {
-    console.log(e.target.files[0]);
-    setFile(e.target.files[0]);
-  };
+  const acceptedFileItems = acceptedFiles.map((file) => (
+    <li key={file.path}>
+      {file.path} - {file.size} bytes
+    </li>
+  ));
+
+  const fileRejectionItems = fileRejections.map(({ file, errors }) => {
+    return (
+      <li key={file.path}>
+        {file.path} - {file.size} bytes
+        <ul>
+          {errors.map((e) => (
+            <li key={e.code}>{e.message}</li>
+          ))}
+        </ul>
+      </li>
+    );
+  });
 
   return (
-    <div style={mystyle}>
-      <Box
-        className="text"
-        component="span"
-        sx={{ p: 12, border: "1px dashed grey" }}
-      >
-        <form onSubmit={handleSubmit}>
-          <input type="file" onChange={handleOnChange} />
+    <div>
+      {/* <section className="container"> */}
 
-          <button type="submit">Upload File</button>
-        </form>
-      </Box>
+      <Card
+        style={{
+          width: "30rem",
+          height: "180px",
+          textAlign: "center",
+          padding: "60px",
+        }}
+      >
+        <div {...getRootProps({ className: "dropzone" })}>
+          <input {...getInputProps()} />
+          <p>Drag 'n' drop some files here, or click to select files</p>
+          {/* <em>(2 files are the maximum number of files you can drop here)</em> */}
+        </div>
+      </Card>
+      <aside>
+        <h4>Accepted files</h4>
+        <ul>{acceptedFileItems}</ul>
+        <h4>Rejected files</h4>
+        <ul>{fileRejectionItems}</ul>
+        {/* <div style={mystyle}>
+          <Button variant="primary">Save</Button> {""}
+          <Button variant="primary" onClick={handleClose}>
+            Cancel
+          </Button>
+        </div> */}
+      </aside>
+      {/* </section> */}
     </div>
   );
 }
-
 export default Upload;

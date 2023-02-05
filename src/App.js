@@ -14,6 +14,8 @@ import PasteSmile from "./pages/PasteSmile";
 import RetroSynthesis from "./pages/RetroSynthesis";
 import Upload from "./pages/Upload";
 import NewProject from "./pages/NewProject";
+import MyProject from "./pages/MyProject";
+import RetroEditor from "./pages/RetroEditor";
 
 const theme = createTheme();
 
@@ -28,11 +30,13 @@ function App() {
             <Route path="/Dashboard" element={<DashboardPage />} />
             <Route path="/Centchem/?" element={<CentChemPage />} />
             <Route path="/CentRepurpose" element={<CentRepurposePage />} />
-            <Route path="/Centchem/?/DrawMolecule" element = {<DrawMolecule />} />
+            <Route path="/Centchem/DrawMolecule" element = {<DrawMolecule />} />
             <Route path="/Centchem/?/PasteSmile" element = {<PasteSmile />} />
             <Route path="Centchem/RetroSynthesis" element = {<RetroSynthesis />} />
             <Route path="Centchem/Upload" element={<Upload />} />
             <Route path="NewProject" element={<NewProject />} />
+            <Route path="/MyProject" element={<MyProject />} />
+            <Route path="/Centchem/RetroSynthesis/RetroEditor" element={<RetroEditor/>} />
           </Route>
         </Routes>
       </ProSidebarProvider>
