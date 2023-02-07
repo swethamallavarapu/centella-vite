@@ -14,6 +14,7 @@ import FormLabel from "@mui/material/FormLabel";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import "../assets/css/RetroSynthesis.css";
 import { useNavigate } from "react-router-dom";
+import Divider from "@mui/material/Divider";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -80,6 +81,7 @@ export default function FullScreenDialog() {
                       </Form.Select>
                     </Col>
                   </Row>
+                  <Divider />
                   <Row>
                     <Col>
                       <Form.Check

@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
 export default function SignIn() {
-  let navigate = useNavigate(); 
+  let navigate = useNavigate();
   const validationSchema = Yup.object().shape({
     email: Yup.string().required("Email is required").email("Email is invalid"),
     password: Yup.string()
@@ -29,10 +29,10 @@ export default function SignIn() {
   });
   const onSubmit = (data) => {
     console.log(JSON.stringify(data, null, 2));
-    let path = `Landing`; 
+    let path = `Landing`;
     navigate(path);
   };
-  const bodyStyle={    paddingTop : '20vh'}
+  const bodyStyle = { paddingTop: "20vh" };
 
   return (
     <>
@@ -88,9 +88,9 @@ export default function SignIn() {
                     {errors.password?.message}
                   </Typography>
                 </Grid>
-                <Grid item xs textAlign="right">
+                {/* <Grid item xs textAlign="right">
                   Forgot password
-                </Grid>
+                </Grid> */}
                 <Button
                   type="submit"
                   fullWidth

@@ -60,7 +60,7 @@
 //                   rows={4}
 //                   type="name"
 //                   placeholder="Enter Project Name"
-//                 />
+//                 />{" "}
 //               </Form.Group>
 
 //               <Form.Group as={Col} controlId="formGridName">
@@ -73,8 +73,8 @@
 //             </Row>
 
 //             {/* <Form.Group className="mb-3" id="formGridCheckbox">
-//               <Form.Check type="checkbox" label="Check me out" />
-//             </Form.Group> */}
+//                <Form.Check type="checkbox" label="Check me out" />
+//              </Form.Group> */}
 
 //             <Button
 //               type="primary"

@@ -1,19 +1,3 @@
-// import React from "react";
-// import DeleteIcon from "@mui/icons-material/Delete";
-// import { Button } from "react-bootstrap";
-// function MyProject() {
-//   return (
-//     <div>
-//       <Button onClick={(e) => this.deleteRow(e)}>
-//         Delete Row
-//         <DeleteIcon />
-//       </Button>
-//     </div>
-//   );
-// }
-
-// export default MyProject;
-
 import React, { useState } from "react";
 
 function MyProject(props) {

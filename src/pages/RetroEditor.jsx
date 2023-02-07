@@ -7,7 +7,6 @@ import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import { Jsme } from "jsme-react";
 // import Divider from "@mui/material/Divider";
-
 class RetroEditor extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +23,7 @@ class RetroEditor extends Component {
       msg: <Jsme height="400px" width="700px" options="oldlook,star"></Jsme>,
     });
   }
+
   render() {
     return (
       <div>

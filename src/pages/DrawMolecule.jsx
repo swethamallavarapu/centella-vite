@@ -17,9 +17,9 @@ export default function App() {
   return (
     <div>
       <CentchemPage />
-      {/* <h1>Draw Molecule</h1> */}
+      <h4>Draw Molecule</h4>
       <div>
-        <div className="style ">
+        <div className="style">
           <Jsme
             height="400px"
             width="700px"
