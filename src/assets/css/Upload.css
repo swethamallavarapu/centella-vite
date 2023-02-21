@@ -1,6 +1,8 @@
-.form {
-    padding-top: 150px;
-    padding-left: 300px;
+.style {
+    display: flex;
+    height: 100%;
+    padding-left: 500px;
+    padding-top: 250px;
 }
 
 .btn {

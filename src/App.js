@@ -11,11 +11,14 @@ import LandingPage from "./pages/LandingPage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DrawMolecule from "./pages/DrawMolecule";
 import PasteSmile from "./pages/PasteSmile";
-import RetroSynthesis from "./pages/RetroSynthesis";
-import Upload from "./pages/Upload";
-import NewProject from "./pages/NewProject";
+import RetroSynthesis from "../src/components/RetroSynthesis";
+import Upload from "./components/Upload";
+// import NewProject from "./pages/NewProject";
 import MyProject from "./pages/MyProject";
 import RetroEditor from "./pages/RetroEditor";
+import MoleculeComparision from "./components/MoleculeComparision";
+import PasteSmileComparision from "./components/Molecule/PasteSmileComparision"
+import VisualEditor from "./pages/VisualEditor";
 
 const theme = createTheme();
 
@@ -34,9 +37,13 @@ function App() {
             <Route path="/Centchem/?/PasteSmile" element = {<PasteSmile />} />
             <Route path="Centchem/RetroSynthesis" element = {<RetroSynthesis />} />
             <Route path="Centchem/Upload" element={<Upload />} />
-            <Route path="NewProject" element={<NewProject />} />
+            {/* <Route path="NewProject" element={<NewProject />} /> */}
             <Route path="/MyProject" element={<MyProject />} />
-            <Route path="/Centchem/RetroSynthesis/RetroEditor" element={<RetroEditor/>} />
+            <Route path="/Centchem/RetroEditor" element={<RetroEditor/>} />
+            <Route path="/Centchem/DrawMolecule/RetroEditor" element={<RetroEditor/>} />
+            <Route path="/Centchem/DrawMolecule/MoleculeComparision" element={<MoleculeComparision/>} />
+            <Route path="/Centchem/PasteSmile/PasteSmileComparision"  element={<PasteSmileComparision/>} />
+            <Route path="/VisualEditor" element={<VisualEditor/>}/> 
           </Route>
         </Routes>
       </ProSidebarProvider>

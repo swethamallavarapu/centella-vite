@@ -1,7 +1,8 @@
 import React from "react";
 import { Paper, styled, Stack } from "@mui/material";
 import SampleBarChart from "../components/charts/barchart";
-import {Container,Row} from 'react-bootstrap';
+import { Container, Row } from "react-bootstrap";
+
 function DashboardPage() {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -22,21 +23,20 @@ function DashboardPage() {
     <>
       <Container>
         <Row>
-        <Stack className="p-4" direction="row" spacing={4}>
-          <Item style={itemStyle}>
-            <span>Total Predictions</span>
-          </Item>
-          <Item style={itemStyle}>
-            <span>Under Trails</span>
-          </Item>
-          <Item style={itemStyle}>
-            <span>Completed/Approved</span>
-          </Item>
-        </Stack>
-        </Row>       
+          <Stack className="p-4" direction="row" spacing={4}>
+            <Item style={itemStyle}>
+              <span>Total Predictions</span>
+            </Item>
+            <Item style={itemStyle}>
+              <span>Under Trails</span>
+            </Item>
+            <Item style={itemStyle}>
+              <span>Completed/Approved</span>
+            </Item>
+          </Stack>
+        </Row>
         <SampleBarChart />
       </Container>
-      
     </>
   );
 }

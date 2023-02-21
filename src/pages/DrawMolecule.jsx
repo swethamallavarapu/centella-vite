@@ -1,38 +1,61 @@
-import { Jsme } from "jsme-react";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 import "../assets/css/DrawMolecule.css";
 import CentchemPage from "./CentChemPage";
+import { Button } from "@mui/material";
+import { Container, Row } from "react-bootstrap";
+import { Jsme } from "jsme-react";
+import { useNavigate } from "react-router-dom";
+import SampleRadar from "../components/charts/radarchart";
+import { Paper, Stack, styled } from "@mui/material";
 
 export default function App() {
   const [solutestate, setSoluteState] = useState("");
 
-  const { handleSubmit } = useForm({
-    defaultValues: {
-      solute: "",
-      solvent: "",
-    },
-  });
+  let navigate = useNavigate();
+  const routeChange = () => {
+    let path = `MoleculeComparision`;
+    navigate(path);
+  };
+  const Item = styled(Paper)(({ theme }) => ({
+    // backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+    // ...theme.typography.body1,
+    padding: theme.spacing(2),
+    textAlign: "left",
+    color: "#2D3748",
+  }));
 
   return (
     <div>
-      <CentchemPage />
-      <h4>Draw Molecule</h4>
-      <div>
-        <div className="style">
-          <Jsme
-            height="400px"
-            width="700px"
-            options="oldlook,star"
-            onChange={setSoluteState}
-          />
-        </div>
-        <div className="form">
-          <h1>{solutestate}</h1>
+      <>
+        <CentchemPage />
+        <Container>
+          <Row>
+            <Stack className="p-4" direction="row" spacing={2}>
+              <Item>
+                <span>
+                  <Jsme
+                    height="400px"
+                    width="700px"
+                    options="oldlook,star"
+                    onChange={setSoluteState}
+                  />
+                </span>
+              </Item>
 
-          <button onSubmit={handleSubmit}>Submit</button>
-        </div>
-      </div>
+              <Item>
+                <span>
+                  <SampleRadar />
+                </span>
+              </Item>
+            </Stack>
+          </Row>
+        </Container>
+        <h1>{solutestate}</h1>
+        <Button type="submit" onClick={routeChange} variant="outlined">
+          Submit
+        </Button>
+      </>
     </div>
   );
 }

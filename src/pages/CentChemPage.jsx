@@ -1,13 +1,19 @@
-import Upload from "./Upload";
+import Upload from "../components/Upload";
 import React, { useState } from "react";
 import { Container, Row, Col, Nav, NavDropdown } from "react-bootstrap";
 // import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 //import Button from "@mui/material/Button";
-
-import Button from "react-bootstrap/Button";
+import Retrosynthesis from "../components/RetroSynthesis";
+import Dialog from "@mui/material/Dialog";
+// import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "../assets/css/Upload.css";
+import Slide from "@mui/material/Slide";
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 function CentChemPage() {
   const mystyle = {
@@ -31,10 +37,19 @@ function CentChemPage() {
     setFullscreen(breakpoint);
     setShow(true);
   }
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log("You clicked submit.");
-  }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   console.log("You clicked submit.");
+  // }
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div style={style}>
@@ -61,44 +76,55 @@ function CentChemPage() {
                 Draw Molecule
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              {values.map((v, idx) => (
-                <NavDropdown.Item
-                  // onClick={() => handleClick(0, "/Upload")}
-                  // eventKey="4.3"
-                  key={idx}
-                  className="me-2 mb-2"
-                  onClick={() => handleShow(v)}
-                >
-                  Upload File{" "}
-                  {typeof v === "string" && `below ${v.split("-")[0]}`}
-                </NavDropdown.Item>
-              ))}
 
-              <Modal
-                show={show}
-                fullscreen={fullscreen}
-                onHide={() => setShow(false)}
+              <NavDropdown.Item
+                // onClick={() => handleClick(0, "/Upload")}
+                // eventKey="4.3"
+                // onClick={() => handleShow(v)}
+                onClick={handleClickOpen}
               >
-                <Modal.Header closeButton>
-                  <Modal.Title>Modal</Modal.Title>
-                </Modal.Header>
-                <Modal.Body style={mystyle}>
-                  <Upload />
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="secondary">Close</Button>
-                  <Button variant="primary" onSubmit={handleSubmit}>
-                    Submit
-                  </Button>
-                </Modal.Footer>
-              </Modal>
+                Upload File{" "}
+              </NavDropdown.Item>
+              <Dialog
+                fullScreen
+                open={open}
+                onClose={handleClose}
+                TransitionComponent={Transition}
+              >
+                <Upload />
+              </Dialog>
             </NavDropdown>
-            <Nav.Item
-              onClick={() => handleClick(0, "/RetroSynthesis")}
-              eventKey="1"
+
+            {/* Retrosynthesis */}
+
+            {values.map((v, idx) => (
+              <Nav.Item
+                // onClick={() => handleClick(0, "/RetroSynthesis")}
+                onClick={() => handleShow(v)}
+                eventKey="1"
+              >
+                <Nav.Link eventKey="2">Retro Synthesis</Nav.Link>
+                {typeof v === "string" && `below ${v.split("-")[0]}`}
+              </Nav.Item>
+            ))}
+            <Modal
+              show={show}
+              fullscreen={fullscreen}
+              onHide={() => setShow(false)}
             >
-              <Nav.Link eventKey="2">Retro Synthesis</Nav.Link>
-            </Nav.Item>
+              <Modal.Header closeButton>
+                <Modal.Title>Modal</Modal.Title>
+              </Modal.Header>
+              <Modal.Body style={mystyle}>
+                <Retrosynthesis />
+              </Modal.Body>
+              {/* <Modal.Footer>
+                <Button variant="secondary">Close</Button>
+                <Button variant="primary" onSubmit={handleSubmit}>
+                  Submit
+                </Button>
+              </Modal.Footer> */}
+            </Modal>
             <Nav.Item>
               <Nav.Link eventKey="3" href="#/home">
                 DeNovo Design

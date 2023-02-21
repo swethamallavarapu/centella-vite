@@ -1,0 +1,14 @@
+.List {
+    width: max-content;
+    padding-top: 120px;
+}
+
+.button {
+    text-align: right;
+
+}
+
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+}
